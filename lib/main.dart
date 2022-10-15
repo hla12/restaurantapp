@@ -62,11 +62,11 @@ class _MyAppState extends State<MyApp> {
   void precacheAssets() async {
     final manifestJson = await rootBundle.loadString('AssetManifest.json');
     final rawAssets = json.decode(manifestJson) as Map<String, dynamic>;
-    final images = rawAssets.keys.where((String key) => key.startsWith('assets/images')).toList();
-    final icons = rawAssets.keys.where((String key) => key.startsWith('assets/icons')).toList();
+    final img = rawAssets.keys.where((String key) => key.startsWith('assets/images')).toList();
+    final icon = rawAssets.keys.where((String key) => key.startsWith('assets/icons')).toList();
     List<String> assets = [];
-    assets.addAll(images);
-    assets.addAll(icons);
+    assets.addAll(img);
+    assets.addAll(icon);
 
     for (var asset in assets) {
       try {
